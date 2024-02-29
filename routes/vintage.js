@@ -9,7 +9,8 @@ vintageRouter.use(express.static("public"));
 vintageRouter.use('/node_modules', express.static('node_modules'));
 
 vintageRouter.get("/", async (req, res) => {
-  try {
+    try {
+      // Searching within the Alpha Set "lea" and isolating page 1 with 80 results 
     const response = await axios.get("https://api.scryfall.com/cards/search?q=set:lea&page=1&per_page=80");
       const allCards = response.data.data; 
       
