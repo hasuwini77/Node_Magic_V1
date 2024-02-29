@@ -1,5 +1,6 @@
 import express from "express"; 
 import vintageRouter from "./routes/vintage.js";
+import modernRouter from "./routes/modern.js";
 
 const app = express(); 
 const port = 3000; 
@@ -16,6 +17,7 @@ app.get("/", (req, res) => {
 })
 
 app.use('/vintage', vintageRouter);
+app.use('/modern', modernRouter);
 
 app.listen(port, () => {
   console.log(`Server running on port: ${port}`);
