@@ -1,4 +1,5 @@
 import express from "express";
+import axios from "axios"
 const vintageRouter = express.Router();
 
    const currentDate = new Date();
@@ -7,11 +8,26 @@ const vintageRouter = express.Router();
 vintageRouter.use(express.static("public"));
 vintageRouter.use('/node_modules', express.static('node_modules'));
 
-vintageRouter.get("/", (req, res) => {
-   
-    
-  res.render("../views/vintage.ejs", {currentDate: formattedDate})
+vintageRouter.get("/", async (req, res) => {
+  try {
+    const response = await axios.get("https://api.scryfall.com/cards/search?q=set:lea&page=1&per_page=80");
+      const allCards = response.data.data; 
+      
+    const filteredCards = allCards
+      .filter(card => card.type_line.toLowerCase().includes("land") === false) // Exclude lands
+      .filter(card => card.image_uris && card.image_uris.normal); // Exclude cards without images
+
+    // Limit the number of cards to 10
+    const slicedCards = filteredCards.slice(0, 12);
+
+    console.log(slicedCards);
+    res.render("../views/vintage.ejs", { currentDate: formattedDate, data: slicedCards });
+  } catch (error) {
+    console.error("Failed to make request:", error.message);
+    res.render("../views/vintage.ejs", { currentDate: formattedDate, error: error.message });
+  }
 });
+
 
 vintageRouter.get("/buycheap", (req, res) => {
   res.render("../views/subpages/buycheap.ejs", {currentDate: formattedDate})

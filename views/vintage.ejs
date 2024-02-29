@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 <link href="style/main.css" rel="stylesheet" />
+<link rel="stylesheet" href="style/vintage.css">
 <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="../js/timer.js" defer></script>
     <title>Node & Magic</title>
@@ -14,7 +15,21 @@
     <%- include('partials/vintagenav') %>
     </header>
     <%- include('partials/vintagecarousel') %>
-
+<div class="vintage-response">
+    <% if (locals.data && Array.isArray(data) && data.length > 0) { %>
+        <h2>Vintage Cards</h2>
+        <ul class="vintage-grid">
+            <% data.forEach(card => { %>
+                <li>
+                    <h3><%= card.name %></h3>
+                    <img src="<%= card.image_uris.small %>" alt="<%= card.name %> Image"/>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No cards available</p>
+    <% } %>
+</div>
     <footer>
     <%- include('partials/footer') %>
     </footer>
