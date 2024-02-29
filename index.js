@@ -1,4 +1,5 @@
 import express from "express"; 
+import vintageRouter from "./routes/vintage.js";
 
 const app = express(); 
 const port = 3000; 
@@ -13,6 +14,8 @@ app.get("/", (req, res) => {
   const formattedDate = currentDate.toLocaleString(); 
     res.render("index.ejs", {currentDate: formattedDate}); 
 })
+
+app.use('/vintage', vintageRouter);
 
 app.listen(port, () => {
   console.log(`Server running on port: ${port}`);
