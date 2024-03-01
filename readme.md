@@ -14,3 +14,4 @@
 - Only Home is hardcoded
 - data passed using locals - conditional logic
 - consistend coding
+- Sub pages should use same template! -__-; 
