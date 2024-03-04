@@ -15,3 +15,4 @@
 - data passed using locals - conditional logic
 - consistend coding
 - Sub pages should use same template! -__-; 
+- Fix the buycheap and buylegends to use one template 
