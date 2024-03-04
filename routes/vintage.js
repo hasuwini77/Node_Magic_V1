@@ -21,7 +21,6 @@ vintageRouter.get("/", async (req, res) => {
     // Limit the number of cards to 10
     const slicedCards = filteredCards.slice(0, 12);
 
-    console.log(slicedCards);
     res.render("../views/vintage.ejs", { currentDate: formattedDate, data: slicedCards });
   } catch (error) {
     console.error("Failed to make request:", error.message);
