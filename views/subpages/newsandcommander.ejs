@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="style/main.css" rel="stylesheet" />
+<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/timer.js" defer></script>
+    <title>Node & Magic</title>
+</head>
+<body>
+    <header>
+<%- include('../partials/nav') %>
+    </header>
+    <%- include('../partials/carousel') %>
+
+
+    <% if (locals.price === 'news')  { %>
+<div class="news-response">
+    <% if (locals.data && Array.isArray(data) && data.length > 0) { %>
+        <h2>Cheap Cards</h2>
+        <p class="news-para">These Magic cards below are only worth under 1$.  </p>
+        <p class="news-para2"> Having fun should not cost anything right?</p>
+        <ul class="news-grid">
+            <% data.forEach(card => { %>
+                <li>
+                    <h3><%= card.name %></h3>
+                    <img src="<%= card.image_uris.small %>" alt="<%= card.name %> Image"  class="zoom-image"/>
+                    <p class="price"> <%= card.prices.usd  %>$ </p>
+                    <a href="<%= card.purchase_uris.cardmarket%>"><button type="button" class="btn buynow btn-outline-light"> Buy Now </button></a>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No cards available</p>
+    <% } %>
+</div>
+<%  }  else if (locals.price === 'commander')  {  %>
+
+    <div class="commander-response">
+    <% if (locals.data && Array.isArray(data) && data.length > 0) { %>
+        <h2>Expensive Legendary Cards</h2>
+        <p class="commander-para">These Magic cards below are all > 100$!  </p>
+        <p class="commander-para2"> Ain't it fun with a little bit of money involved?</p>
+        <ul class="commander-grid">
+            <% data.forEach(card => { %>
+                <li>
+                    <h3><%= card.name %></h3>
+                    <img src="<%= card.image_uris.small %>" alt="<%= card.name %> Image"  class="zoom-image"/>
+                    <p class="price"> <%= card.prices.usd  %>$ </p>
+                    <a href="<%= card.purchase_uris.cardmarket%>"><button type="button" class="btn buynow btn-outline-light"> Buy Now </button></a>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No cards available</p>
+    <% } %>
+    <% } %> 
+
+
+    <footer>
+    <%- include('../partials/footer') %>
+    </footer>
+</body>
+</html>

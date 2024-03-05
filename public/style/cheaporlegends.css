@@ -1,0 +1,58 @@
+body { 
+    color: white;
+}
+h2 { 
+    text-align: center;
+    padding: 10px;
+}
+
+h3 { 
+    font-size: 0.8rem;
+}
+.cheap-grid , .legends-grid {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    max-width: 800px; 
+    margin: 0 auto; /* Center the grid horizontally */
+}
+
+.cheap-grid li, .legends-grid li {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center; /* Center the content within each card */
+}
+
+.cheap-para , .cheap-para2, .legends-para , .legends-para2  { 
+    text-align: center;
+    padding: 10px;
+        margin: 0;
+}
+
+.cheap-para2, .legends-para2 { 
+    font-size: 0.7rem;
+
+}
+
+ .zoom-image {
+        transition: transform 0.3s;
+    }
+
+    .zoom-image:hover {
+        transform: scale(1.2); 
+    }
+
+    .price { 
+        padding: 20px;
+        margin: 0;
+    }
+    .buynow { margin: 0
+    
+    }
+
+@media (max-width: 768px) {
+    .cheap-grid,  .legends-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); /* Full width on small screens */
+    }
+}
