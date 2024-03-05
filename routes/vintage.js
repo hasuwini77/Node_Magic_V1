@@ -37,10 +37,14 @@ vintageRouter.get("/buycheap", async (req, res) => {
       
     const filteredCards = allCards
       .filter(card => card.type_line.toLowerCase().includes("land") === false) // Exclude lands
-      .filter(card => card.image_uris && card.image_uris.normal); // Exclude cards without images
+      .filter(card => card.image_uris && card.image_uris.normal) // Exclude cards without images
+      .filter(card => card.prices && card.prices.usd && card.prices.usd !== 0); // Exclude cards with undefined or 0 price
+    
+  // Shuffle the array of filtered cards
+  const shuffledCards = filteredCards.sort(() => Math.random() - 0.5);
 
-    // Limit the number of cards to 6
-    const slicedCards = filteredCards.slice(0, 6);
+  // Limit the number of cards to 6
+  const slicedCards = shuffledCards.slice(0, 6);
 
     res.render("../views/subpages/cheaporlegends.ejs", { currentDate: formattedDate, data: slicedCards ,  price:
       'cheap'} );

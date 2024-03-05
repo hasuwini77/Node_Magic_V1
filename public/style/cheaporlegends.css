@@ -35,6 +35,22 @@ h3 {
 
 }
 
+ .zoom-image {
+        transition: transform 0.3s;
+    }
+
+    .zoom-image:hover {
+        transform: scale(1.2); 
+    }
+
+    .price { 
+        padding: 20px;
+        margin: 0;
+    }
+    .buynow { margin: 0
+    
+    }
+
 @media (max-width: 768px) {
     .cheap-grid {
         grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); /* Full width on small screens */
