@@ -1,0 +1,42 @@
+
+    <% if (locals.price === 'cheap')  { %>
+<div class="cheap-response">
+    <% if (locals.data && Array.isArray(data) && data.length > 0) { %>
+        <h2>Cheap Cards</h2>
+        <p class="cheap-para">These Magic cards below are only worth under 1$.  </p>
+        <p class="cheap-para2"> Having fun should not cost anything right?</p>
+        <ul class="cheap-grid">
+            <% data.forEach(card => { %>
+                <li>
+                    <h3><%= card.name %></h3>
+                    <img src="<%= card.image_uris.small %>" alt="<%= card.name %> Image"  class="zoom-image"/>
+                    <p class="price"> <%= card.prices.usd  %>$ </p>
+                    <a href="<%= card.purchase_uris.cardmarket%>"><button type="button" class="btn buynow btn-outline-light"> Buy Now </button></a>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No cards available</p>
+    <% } %>
+</div>
+<%  }  else if (locals.price === 'expensive')  {  %>
+
+    <div class="legends-response">
+    <% if (locals.data && Array.isArray(data) && data.length > 0) { %>
+        <h2>Expensive Legendary Cards</h2>
+        <p class="legends-para">These Magic cards below are all > 100$!  </p>
+        <p class="legends-para2"> Ain't it fun with a little bit of money involved?</p>
+        <ul class="legends-grid">
+            <% data.forEach(card => { %>
+                <li>
+                    <h3><%= card.name %></h3>
+                    <img src="<%= card.image_uris.small %>" alt="<%= card.name %> Image"  class="zoom-image"/>
+                    <p class="price"> <%= card.prices.usd  %>$ </p>
+                    <a href="<%= card.purchase_uris.cardmarket%>"><button type="button" class="btn buynow btn-outline-light"> Buy Now </button></a>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No cards available</p>
+    <% } %>
+    <% } %> 
