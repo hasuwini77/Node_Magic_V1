@@ -29,10 +29,27 @@ vintageRouter.get("/", async (req, res) => {
 });
 
 
-vintageRouter.get("/buycheap", (req, res) => {
-  res.render("../views/subpages/cheaporlegends.ejs", {
-    currentDate: formattedDate, price:
-      'cheap'})
+vintageRouter.get("/buycheap", async (req, res) => {
+  try {
+      // Searching within the whole magic database and getting cards under 1 dollar with 80 results 
+    const response = await axios.get("https://api.scryfall.com/cards/search?q=usd<1&page=1&per_page=80");
+      const allCards = response.data.data; 
+      
+    const filteredCards = allCards
+      .filter(card => card.type_line.toLowerCase().includes("land") === false) // Exclude lands
+      .filter(card => card.image_uris && card.image_uris.normal); // Exclude cards without images
+
+    // Limit the number of cards to 6
+    const slicedCards = filteredCards.slice(0, 6);
+
+    res.render("../views/subpages/cheaporlegends.ejs", { currentDate: formattedDate, data: slicedCards ,  price:
+      'cheap'} );
+  } catch (error) {
+    console.error("Failed to make request:", error.message);
+    res.render("../views/subpages/cheaporlegends.ejs", { currentDate: formattedDate, error: error.message ,  price:
+      'cheap'});
+  }
+
 });
 
 vintageRouter.get("/buylegends", (req, res) => {
