@@ -40,11 +40,14 @@ height: auto;
 
 .carousel-item img {
     width: 100%;
-    max-height: 400px;
-    object-fit: contain; 
+    max-height: 300px;
+    object-fit:contain;
     background-color: #343a40;
 }
 
+.carousel-inner { 
+     backdrop-filter: blur(100px);
+}
 .featurette { 
     background-color: #afb2b6;
 }
@@ -56,3 +59,11 @@ hr {
   margin-right: auto;
 }
 
+footer { 
+    padding: 10px;
+}
+
+.commander-img { 
+     position: relative;
+    top: 30px;
+}
