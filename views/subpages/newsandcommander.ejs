@@ -20,9 +20,9 @@
     <% if (locals.type === 'news')  { %>
 <div class="news-response">
     <% if (locals.data && Array.isArray(data) && data.length > 0) { %>
-        <h2>Cheap Cards</h2>
-        <p class="news-para">These Magic cards below are only worth under 1$.  </p>
-        <p class="news-para2"> Having fun should not cost anything right?</p>
+        <h2> Throne of Eldraine Modern Cards </h2>
+        <p class="news-para">These Magic cards belongs to the set of Throne of Eldraine  </p>
+        <p class="news-para2"> This is how Magic cards look nowadays, have a look</p>
         <ul class="news-grid">
             <% data.forEach(card => { %>
                 <li>
@@ -41,9 +41,9 @@
 
     <div class="commander-response">
     <% if (locals.data && Array.isArray(data) && data.length > 0) { %>
-        <h2>Expensive Legendary Cards</h2>
-        <p class="commander-para">These Magic cards below are all > 100$!  </p>
-        <p class="commander-para2"> Ain't it fun with a little bit of money involved?</p>
+        <h2>Commander Cards</h2>
+        <p class="commander-para">These Magic cards below are found in Commander's Decks</p>
+        <p class="commander-para2"> The more the merrier, Commander is a new fun format using 100 Deck of cards</p>
         <ul class="commander-grid">
             <% data.forEach(card => { %>
                 <li>
