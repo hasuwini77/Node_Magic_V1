@@ -1,0 +1,43 @@
+
+
+    <% if (locals.type === 'news')  { %>
+<div class="news-response">
+    <% if (locals.data && Array.isArray(data) && data.length > 0) { %>
+        <h2> Throne of Eldraine Modern Cards </h2>
+        <p class="news-para">These Magic cards belongs to the set of Throne of Eldraine  </p>
+        <p class="news-para2"> This is how Magic cards look nowadays, have a look</p>
+        <ul class="news-grid">
+            <% data.forEach(card => { %>
+                <li>
+                    <h3><%= card.name %></h3>
+                    <img src="<%= card.image_uris.small %>" alt="<%= card.name %> Image"  class="zoom-image"/>
+                    <p class="price"> <%= card.prices.usd  %>$ </p>
+                    <a href="<%= card.purchase_uris.cardmarket%>"><button type="button" class="btn buynow btn-outline-light"> Buy Now </button></a>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No cards available</p>
+    <% } %>
+</div>
+<%  }  else if (locals.type === 'commander')  {  %>
+
+    <div class="commander-response">
+    <% if (locals.data && Array.isArray(data) && data.length > 0) { %>
+        <h2>Commander Cards</h2>
+        <p class="commander-para">These Magic cards below are found in Commander's Decks</p>
+        <p class="commander-para2"> The more the merrier, Commander is a new fun format using 100 Deck of cards</p>
+        <ul class="commander-grid">
+            <% data.forEach(card => { %>
+                <li>
+                    <h3><%= card.name %></h3>
+                    <img src="<%= card.image_uris.small %>" alt="<%= card.name %> Image"  class="zoom-image"/>
+                    <p class="price"> <%= card.prices.usd  %>$ </p>
+                    <a href="<%= card.purchase_uris.cardmarket%>"><button type="button" class="btn buynow btn-outline-light"> Buy Now </button></a>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No cards available</p>
+    <% } %>
+    <% } %> 
