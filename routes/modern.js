@@ -50,6 +50,8 @@ try {
   // Limit the number of cards to 6
   const slicedCards = shuffledCards.slice(0, 6);
 
+  console.log(slicedCards);
+
     res.render("../views/subpages/newsandcommander.ejs", { currentDate: formattedDate, data: slicedCards ,  type:
       'commander'} );
   } catch (error) {
@@ -78,7 +80,9 @@ modernRouter.get("/newsets", async (req, res) => {
   const shuffledCards = filteredCards.sort(() => Math.random() - 0.5);
 
   // Limit the number of cards to 6
-  const slicedCards = shuffledCards.slice(0, 6);
+    const slicedCards = shuffledCards.slice(0, 6); 
+    
+    console.log(slicedCards);
 
     res.render("../views/subpages/newsandcommander.ejs", { currentDate: formattedDate, data: slicedCards ,  type:
       'news'} );
