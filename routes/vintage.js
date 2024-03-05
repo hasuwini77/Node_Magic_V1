@@ -18,8 +18,12 @@ vintageRouter.get("/", async (req, res) => {
       .filter(card => card.type_line.toLowerCase().includes("land") === false) // Exclude lands
       .filter(card => card.image_uris && card.image_uris.normal); // Exclude cards without images
 
-    // Limit the number of cards to 10
-    const slicedCards = filteredCards.slice(0, 12);
+// Shuffle the array of filtered cards
+    const shuffledCards = filteredCards.sort(() => Math.random() - 0.5);
+
+    // Limit the number of cards to 12
+    const slicedCards = shuffledCards.slice(0, 12);
+
 
     res.render("../views/vintage.ejs", { currentDate: formattedDate, data: slicedCards });
   } catch (error) {
