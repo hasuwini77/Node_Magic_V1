@@ -11,8 +11,9 @@
 - Use Partials ALOT
 - Use of templates
 - Responsive
-- Only Home is hardcoded
+- Only Home is hardcoded$$
 - data passed using locals - conditional logic
 - consistend coding
 - Sub pages should use same template! -__-; 
 - Fix the buycheap and buylegends to use one template 
+- Switch Carousels on Vintage and modern 

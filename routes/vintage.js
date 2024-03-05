@@ -30,11 +30,13 @@ vintageRouter.get("/", async (req, res) => {
 
 
 vintageRouter.get("/buycheap", (req, res) => {
-  res.render("../views/subpages/buycheap.ejs", {currentDate: formattedDate})
+  res.render("../views/subpages/cheaporlegends.ejs", {
+    currentDate: formattedDate, price:
+      'cheap'})
 });
 
 vintageRouter.get("/buylegends", (req, res) => {
-  res.render("../views/subpages/buylegends.ejs", {currentDate: formattedDate}); 
+  res.render("../views/subpages/cheaporlegends.ejs", { currentDate: formattedDate, price: 'expensive' }); 
 });
 
 
