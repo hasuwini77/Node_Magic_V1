@@ -32,8 +32,32 @@ modernRouter.get("/", async (req, res) => {
   }
 });
 
-modernRouter.get("/commander", (req, res) => {
-  res.render("../views/subpages/newsandcommander.ejs", {currentDate: formattedDate})
+modernRouter.get("/commander", async (req, res) => {
+try {
+      // Searching within the whole magic database and getting cards of type Commander with 80 results 
+      const response = await axios.get("https://api.scryfall.com/cards/search?q=type:commander&page=1&per_page=80");
+      const allCards = response.data.data; 
+      
+  const filteredCards = allCards
+      .filter(card => card.type_line.toLowerCase().includes("land") === false) // Exclude lands
+      .filter(card => card.image_uris && card.image_uris.normal) // Exclude cards without images
+      .filter(card => card.prices && card.prices.usd && card.prices.usd !== 0); // Exclude cards with undefined or 0 price
+    
+  // Shuffle the array of filtered cards
+  const shuffledCards = filteredCards.sort(() => Math.random() - 0.5);
+
+  // Limit the number of cards to 6
+  const slicedCards = shuffledCards.slice(0, 6);
+
+    res.render("../views/subpages/newsandcommander.ejs", { currentDate: formattedDate, data: slicedCards ,  type:
+      'commander'} );
+  } catch (error) {
+  console.error("Failed to make request:", error.message);
+  
+    res.render("../views/subpages/newsandcommander.ejs", { currentDate: formattedDate, error: error.message ,  type:
+      'commander'});
+  }
+
 });
 
 modernRouter.get("/newsets", (req, res) => {
