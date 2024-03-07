@@ -89,7 +89,54 @@ footer {
  .random-card { 
     display: flex;
     justify-content: center;
-    background-color: #afb2b6;
+  background-image: url(../images/magic33wow.webp);
+    background-color: #1f1f1f; 
+      background-repeat: repeat; 
+  background-size: cover;
+  background-blend-mode:color-dodge;
     width: 100%;
-    padding: 15px;
+    padding: 10px;
  }
+
+ .card-body { 
+  background-image: url(../images/magic_modern2.webp);
+  mix-blend-mode:difference;
+    background-color: #ffffff; 
+      background-repeat: repeat; 
+        background-size:auto;
+      color: white;
+      text-align: center;
+ }
+
+ .card-title { 
+    font-size: 1.5rem;
+ }
+
+ li.list-group-item { 
+    background-color: #1f1f1f;
+ }
+.card-link {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  background-color: #007bff; 
+  color: #fff;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card-link:hover {
+  background-color: #0056b3; 
+  border-color: #0056b3;
+  color: #fff;
+}
+
+
+
+ h3 { 
+    text-align: center;
+ }
+
