@@ -75,9 +75,10 @@ footer {
     top: 30px;
 }
 
-.row.featurette { 
+.container.row.featurette { 
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .row.featurette img {
