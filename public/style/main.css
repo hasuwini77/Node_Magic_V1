@@ -1,3 +1,10 @@
+* { 
+    box-sizing: border-box;
+}
+html, body { 
+    height: 100vh; 
+}
+
 body { 
 
        background-color: #343a40;
@@ -67,3 +74,13 @@ footer {
      position: relative;
     top: 30px;
 }
+
+.row.featurette { 
+    display: flex;
+    align-items: center;
+}
+
+.row.featurette img {
+    width: 80%;
+    height: auto;
+ }
