@@ -1,18 +1,38 @@
 <div class="container random-card">
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
+  <% if (locals.data) { %>
+    <div class="card" style="width: 18rem;">
+      <% if (data.image_uris && data.image_uris.small) { %>
+        <img src="<%= data.image_uris.small %>" class="random-card" alt="<%= data.name %>">
+      <% } %>
+      <div class="card-body">
+        <% if (data.name) { %>
+          <h5 class="card-title"><%= data.name %></h5>
+        <% } %>
+        <% if (data.description) { %>
+          <p class="card-text"><%= data.description %></p>
+        <% } %>
+      </div>
+      <ul class="list-group list-group-flush">
+          <% if (data.prices) { %> 
+        <li class="list-group-item">Price:<%= data.prices.usd %>$</li>
+             <% } %>
+           <% if (data.rarity) { %> 
+        <li class="list-group-item">Rarity: <%= data.rarity %></li>
+             <% } %>
+                 <% if (data.artist) { %> 
+        <li class="list-group-item">Artist: <%= data.artist %></li>
+             <% } %>
+      </ul>
+      <div class="card-body">
+           <% if (data.related_uris.gatherer) { %> 
+        <a href="<%= data.related_uris.gatherer %>" class="card-link">More info</a>
+                 <% } %>
+                     <% if (data.purchase_uris.cardmarket) { %> 
+        <a href="<%= data.purchase_uris.cardmarket %> " class="card-link">Buy now</a>
+           <% } %>
+      </div>
+    </div>
+  <% } else { %>
+    <p>No cards available</p>
+  <% } %>
 </div>
