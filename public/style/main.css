@@ -81,6 +81,14 @@ footer {
 }
 
 .row.featurette img {
-    width: 80%;
+    width: 70%;
     height: auto;
+ }
+
+ .random-card { 
+    display: flex;
+    justify-content: center;
+    background-color: #afb2b6;
+    width: 100%;
+    padding: 15px;
  }
