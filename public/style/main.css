@@ -47,7 +47,7 @@ height: auto;
 
 .carousel-item img {
     width: 100%;
-    max-height: 300px;
+    max-height: 350px;
     object-fit:contain;
     background-color: #343a40;
 }
@@ -56,9 +56,14 @@ height: auto;
      backdrop-filter: blur(100px);
 }
 .featurette { 
-    background-color: #afb2b6;
+    background-color: #145432;
+    border-radius: 15px;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
+span.text-body-secondary { 
+    color: rgb(160, 158, 158) !important; 
+}
 hr { 
     color: white;
     max-width: 200px;
@@ -135,8 +140,6 @@ ul .card-body {
   border-color: #0056b3;
   color: #fff;
 }
-
-
 
  h3 { 
     text-align: center;
