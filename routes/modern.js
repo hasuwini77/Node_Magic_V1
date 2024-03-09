@@ -2,6 +2,7 @@ import express from "express";
 import axios from "axios"
 const modernRouter = express.Router();
 
+const currentYear = new Date().getFullYear(); 
    const currentDate = new Date();
 const formattedDate = currentDate.toLocaleString(); 
     
@@ -25,10 +26,10 @@ modernRouter.get("/", async (req, res) => {
     const slicedCards = shuffledCards.slice(0, 12);
 
 
-    res.render("../views/modern.ejs", { currentDate: formattedDate, data: slicedCards });
+    res.render("../views/modern.ejs", { currentDate: formattedDate, data: slicedCards , getYear: currentYear});
   } catch (error) {
     console.error("Failed to make request:", error.message);
-    res.render("../views/modern.ejs", { currentDate: formattedDate, error: error.message });
+    res.render("../views/modern.ejs", { currentDate: formattedDate, error: error.message, getYear: currentYear });
   }
 });
 
@@ -53,12 +54,12 @@ try {
   console.log(slicedCards);
 
     res.render("../views/subpages/newsandcommander.ejs", { currentDate: formattedDate, data: slicedCards ,  type:
-      'commander'} );
+      'commander', getYear: currentYear} );
   } catch (error) {
   console.error("Failed to make request:", error.message);
   
     res.render("../views/subpages/newsandcommander.ejs", { currentDate: formattedDate, error: error.message ,  type:
-      'commander'});
+      'commander', getYear: currentYear});
   }
 
 });
@@ -85,12 +86,12 @@ modernRouter.get("/newsets", async (req, res) => {
     console.log(slicedCards);
 
     res.render("../views/subpages/newsandcommander.ejs", { currentDate: formattedDate, data: slicedCards ,  type:
-      'news'} );
+      'news', getYear: currentYear} );
   } catch (error) {
   console.error("Failed to make request:", error.message);
   
     res.render("../views/subpages/newsandcommander.ejs", { currentDate: formattedDate, error: error.message ,  type:
-      'news'});
+      'news', getYear: currentYear});
   }
 });
 

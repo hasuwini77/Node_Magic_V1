@@ -2,6 +2,7 @@ import express from "express";
 import axios from "axios"
 const vintageRouter = express.Router();
 
+const currentYear = new Date().getFullYear(); 
    const currentDate = new Date();
     const formattedDate = currentDate.toLocaleString(); 
 
@@ -25,10 +26,10 @@ vintageRouter.get("/", async (req, res) => {
     const slicedCards = shuffledCards.slice(0, 12);
 
 
-    res.render("../views/vintage.ejs", { currentDate: formattedDate, data: slicedCards });
+    res.render("../views/vintage.ejs", { currentDate: formattedDate, data: slicedCards , getYear: currentYear});
   } catch (error) {
     console.error("Failed to make request:", error.message);
-    res.render("../views/vintage.ejs", { currentDate: formattedDate, error: error.message });
+    res.render("../views/vintage.ejs", { currentDate: formattedDate, error: error.message , getYear: currentYear});
   }
 });
 
@@ -51,11 +52,11 @@ vintageRouter.get("/buycheap", async (req, res) => {
   const slicedCards = shuffledCards.slice(0, 6);
 
     res.render("../views/subpages/cheaporlegends.ejs", { currentDate: formattedDate, data: slicedCards ,  price:
-      'cheap'} );
+      'cheap', getYear: currentYear} );
   } catch (error) {
     console.error("Failed to make request:", error.message);
     res.render("../views/subpages/cheaporlegends.ejs", { currentDate: formattedDate, error: error.message ,  price:
-      'cheap'});
+      'cheap', getYear: currentYear});
   }
 
 });
@@ -77,12 +78,12 @@ const response = await axios.get("https://api.scryfall.com/cards/search?q=usd>10
   const slicedCards = shuffledCards.slice(0, 6);
 
     res.render("../views/subpages/cheaporlegends.ejs", { currentDate: formattedDate, data: slicedCards ,  price:
-      'expensive'} );
+      'expensive', getYear: currentYear} );
   } catch (error) {
   console.error("Failed to make request:", error.message);
   
     res.render("../views/subpages/cheaporlegends.ejs", { currentDate: formattedDate, error: error.message ,  price:
-      'expensive'});
+      'expensive', getYear: currentYear});
   }
 });
 

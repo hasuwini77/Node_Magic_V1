@@ -5,7 +5,7 @@ import axios from "axios";
 
 const app = express(); 
 const port = process.env.PORT || 3000
-
+const currentYear = new Date().getFullYear(); 
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 // this line below will activate bootstrap 
@@ -21,11 +21,11 @@ app.get("/", async (req, res) => {
     const randomCard = response.data;
 
     console.log(randomCard);
-    res.render("index.ejs", { currentDate: formattedDate, data: randomCard });
+    res.render("index.ejs", { currentDate: formattedDate, data: randomCard , getYear: currentYear});
   } catch (error) {
     console.error("Failed to make request:", error.message);
 
-    res.render("index.ejs", { currentDate: formattedDate, error: error.message });
+    res.render("index.ejs", { currentDate: formattedDate, error: error.message , getYear: currentYear});
   }
 });
 
