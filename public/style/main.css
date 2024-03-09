@@ -1,22 +1,23 @@
 * { 
     box-sizing: border-box;
 }
+
 html, body { 
     height: 100vh; 
 }
 
 body { 
-
-       background-color: #343a40;
-           color: white;
+    background-color: #343a40;
+    color: white;
 }
+
 .nav-item.timer-clock { 
 height: auto;
 }
+
 .timer-clock {
     border-radius: 5px;
     position: relative;
-
 }
 
 .timer {
@@ -55,6 +56,7 @@ height: auto;
 .carousel-inner { 
      backdrop-filter: blur(100px);
 }
+
 .featurette { 
     background-color: #145432;
     border-radius: 15px;
@@ -65,9 +67,9 @@ span.text-body-secondary {
     color: rgb(160, 158, 158) !important; 
 }
 hr { 
-    color: white;
-    max-width: 200px;
-      margin-left: auto;
+  color: white;
+  max-width: 200px;
+  margin-left: auto;
   margin-right: auto;
 }
 
@@ -76,8 +78,8 @@ footer {
 }
 
 .commander-img { 
-     position: relative;
-    top: 30px;
+ position: relative;
+ top: 30px;
 }
 
 .container.row.featurette { 
@@ -92,25 +94,25 @@ footer {
  }
 
  .random-card { 
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
   background-image: url(../images/magic33wow.webp);
-    background-color: #1f1f1f; 
-      background-repeat: repeat; 
+  background-color: #1f1f1f; 
+  background-repeat: repeat; 
   background-size: cover;
   background-blend-mode:color-dodge;
-    width: 100%;
-    padding: 10px;
+  width: 100%;
+  padding: 10px;
  }
 
  .card-body { 
-  background-image: url(../images/magic_modern2.webp);
-  mix-blend-mode:difference;
-    background-color: #ffffff; 
-      background-repeat: repeat; 
-        background-size:auto;
-      color: white;
-      text-align: center;
+ background-image: url(../images/magic_modern2.webp);
+ mix-blend-mode:difference;
+ background-color: #ffffff; 
+ background-repeat: repeat; 
+ background-size:auto;
+ color: white;
+ text-align: center;
  }
 
  .card-title { 
