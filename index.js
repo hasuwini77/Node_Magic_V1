@@ -1,6 +1,6 @@
 import express from "express";
-import vintageRouter from "../routes/vintage.js";
-import modernRouter from "../routes/modern.js";
+import vintageRouter from "./routes/vintage.js";
+import modernRouter from "./routes/modern.js";
 import axios from "axios";
 
 const app = express();
